@@ -23,7 +23,7 @@ var wordGuessGame = {
        this.currentWord = this.possibleWords[Math.floor(Math.random() * this.possibleWords.length)];
     }, // randomly selects a word from the list of possibles
 
-    blankGenerator: function() {
+    blankGenerator: function() { // generates a blank sequence the same length as the current word, for display
       this.underscores = "";
       for (var i = 0; i < this.currentWord.length; i++) {
         this.underscores = this.underscores + "_";
@@ -43,10 +43,10 @@ var wordGuessGame = {
     },
 
     correctGuess: function(keyInput) { // defines behavior when users guesses correctly
-      this.guessesRemaining --;
-      guessText.textContent = this.guessesRemaining;
-      this.lettersGuessed.push(keyInput).toString();
-      lettersText.textContent = this.lettersGuessed.toString();
+      this.guessesRemaining --; // decreases guesses left
+      guessText.textContent = this.guessesRemaining; // logs new guess total onscreen
+      this.lettersGuessed.push(keyInput); // updates letter history
+      lettersText.textContent = this.lettersGuessed.toString(); //logs letter history to screen
       var underscoreRecord = this.underscores; // saves the previous blank arrangement for building the new one
       var winChecker = 0; // checks to see if there are any letters left
       this.underscores = ""; // need to redefine how the blanks are displayed
@@ -68,7 +68,7 @@ var wordGuessGame = {
       }
     },
 
-    incorrectGuess: function(keyInput) { // defines incorrect user guess behavior
+    incorrectGuess: function(keyInput) { // defines incorrect user guess behavior, similar in construction to above function
       this.guessesRemaining --;
       guessText.textContent = this.guessesRemaining;
       this.lettersGuessed.push(keyInput).toString();
@@ -82,14 +82,14 @@ var wordGuessGame = {
       wordDisplay.textContent = "YOU WIN!";
       this.wins++;
       winsText.textContent = this.wins;
-      start = 1; //signals restart
+      start = 1; //signals a restart
     },
 
     youLose: function() { // when guesses run out
       wordDisplay.textContent = "YOU LOSE.";
       this.losses++;
       lossesText.textContent = this.losses;
-      start = 1; //signals restart
+      start = 1; //signals a restart
     }
 
 }
@@ -108,7 +108,7 @@ document.onkeyup = function(event) {
   var keyInput = event.key.toLowerCase();
 
   // checks if guess is a letter
-  if (isLetter(keyInput) && (wordGuessGame.lettersGuessed.indexOf(keyInput) < 0)) {
+  if (isLetter(keyInput) && (wordGuessGame.lettersGuessed.indexOf(keyInput) < 0) && (keyInput !== "enter")) {
   // checks if letter is in word
   if (wordGuessGame.currentWord.indexOf(keyInput) >= 0) {
 

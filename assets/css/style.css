@@ -1,0 +1,27 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  color: #dddddd;
+}
+
+h1, h2, h3 {
+  margin: 20px;
+}
+
+body {
+  background-image: url("https://johnniecraig.files.wordpress.com/2010/07/gallows.jpg");
+  background-color: #262626;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  /* text-align: center; */
+}
+
+h1 {
+  font-size: 4rem;
+  font-family: 'Cinzel', serif;
+}
+
+#word-display {
+  letter-spacing: 3px;
+}
