@@ -12,7 +12,7 @@ var start = 1; // helps with starting and resetting
 // define word guess game as an object
 var wordGuessGame = {
     currentWord: 0, // placeholder value, will be redfined right away by currentWordFunction
-    possibleWords: ["bigfoot", "nessie", "kraken", "yeti"], // defines possible words
+    possibleWords: ["doom", "gloom", "sadness", "depression", "suicidal", "darkness","morose","dismal","desolation"], // defines possible words
     wins: 0, // keeps count of wins
     losses: 0, // keeps count of losses
     guessesRemaining: 12, // keeps count of guesses in reverse
@@ -108,7 +108,7 @@ document.onkeyup = function(event) {
   var keyInput = event.key.toLowerCase();
 
   // checks if guess is a letter
-  if (isLetter(keyInput) && (wordGuessGame.lettersGuessed.indexOf(keyInput) < 0) && (keyInput !== "enter")) {
+  if (isLetter(keyInput) && (wordGuessGame.lettersGuessed.indexOf(keyInput) < 0) && (keyInput.length === 1)) {
   // checks if letter is in word
   if (wordGuessGame.currentWord.indexOf(keyInput) >= 0) {
 
