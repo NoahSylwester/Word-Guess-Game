@@ -43,8 +43,6 @@ var wordGuessGame = {
     },
 
     correctGuess: function(keyInput) { // defines behavior when users guesses correctly
-      this.guessesRemaining --; // decreases guesses left
-      guessText.textContent = this.guessesRemaining; // logs new guess total onscreen
       this.lettersGuessed.push(keyInput); // updates letter history
       lettersText.textContent = this.lettersGuessed.toString(); //logs letter history to screen
       var underscoreRecord = this.underscores; // saves the previous blank arrangement for building the new one
