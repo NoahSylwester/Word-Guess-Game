@@ -44,7 +44,7 @@ var wordGuessGame = {
 
     correctGuess: function(keyInput) { // defines behavior when users guesses correctly
       this.lettersGuessed.push(keyInput); // updates letter history
-      lettersText.textContent = this.lettersGuessed.toString(); //logs letter history to screen
+      lettersText.textContent = this.lettersGuessed.join(" "); //logs letter history to screen
       var underscoreRecord = this.underscores; // saves the previous blank arrangement for building the new one
       var winChecker = 0; // checks to see if there are any letters left
       this.underscores = ""; // need to redefine how the blanks are displayed
@@ -69,8 +69,8 @@ var wordGuessGame = {
     incorrectGuess: function(keyInput) { // defines incorrect user guess behavior, similar in construction to above function
       this.guessesRemaining --;
       guessText.textContent = this.guessesRemaining;
-      this.lettersGuessed.push(keyInput).toString();
-      lettersText.textContent = this.lettersGuessed.toString();
+      this.lettersGuessed.push(keyInput);
+      lettersText.textContent = this.lettersGuessed.join(" ");
       if (this.guessesRemaining === 0) {
         this.youLose();
       }
