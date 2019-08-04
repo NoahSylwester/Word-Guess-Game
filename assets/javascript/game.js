@@ -43,6 +43,7 @@ var wordGuessGame = {
     },
 
     correctGuess: function(keyInput) { // defines behavior when users guesses correctly
+      document.getElementById('beep').play();
       this.lettersGuessed.push(keyInput); // updates letter history
       lettersText.textContent = this.lettersGuessed.join(" "); //logs letter history to screen
       var underscoreRecord = this.underscores; // saves the previous blank arrangement for building the new one
